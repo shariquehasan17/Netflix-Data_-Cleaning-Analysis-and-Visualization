@@ -1,0 +1,39 @@
+from wordcloud import WordCloud
+
+
+import sys
+print(sys.executable)
+
+
+port pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from wordcloud import WordCloud
+
+df = pd.read_csv(r'C:\Users\Sharique Hasan\Desktop\DATA ANALYST INTERNSHIP\Dataset\netflixtitles.csv')
+print(df.head())
+
+df = pd.read_csv(r'C:\Users\Sharique Hasan\Desktop\DATA ANALYST INTERNSHIP\Dataset')
+print(df.head())
+
+ show_id     type                             title         director  \
+0      s1    Movie              Dick Johnson Is Dead  Kirsten Johnson   
+1      s3  TV Show                         Ganglands  Julien Leclercq   
+2      s6  TV Show                     Midnight Mass    Mike Flanagan   
+3     s14    Movie  Confessions of an Invisible Girl    Bruno Garotti   
+4      s8    Movie                           Sankofa     Haile Gerima   
+
+         country date_added  release_year rating  duration  \
+0  United States  9/25/2021          2020  PG-13    90 min   
+1         France  9/24/2021          2021  TV-MA  1 Season   
+2  United States  9/24/2021          2021  TV-MA  1 Season   
+3         Brazil  9/22/2021          2021  TV-PG    91 min   
+4  United States  9/24/2021          1993  TV-MA   125 min   
+
+                                           listed_in  
+0                                      Documentaries  
+1  Crime TV Shows, International TV Shows, TV Act...  
+2                 TV Dramas, TV Horror, TV Mysteries  
+3                 Children & Family Movies, Comedies  
+4   Dramas, Independent Movies, International Movies  
