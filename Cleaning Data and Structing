@@ -1,0 +1,37 @@
+print(df.info())
+print(df.isnull().sum())
+class 'pandas.core.frame.DataFrame'>
+RangeIndex: 8790 entries, 0 to 8789
+Data columns (total 10 columns):
+ #   Column        Non-Null Count  Dtype 
+---  ------        --------------  ----- 
+ 0   show_id       8790 non-null   object
+ 1   type          8790 non-null   object
+ 2   title         8790 non-null   object
+ 3   director      8790 non-null   object
+ 4   country       8790 non-null   object
+ 5   date_added    8790 non-null   object
+ 6   release_year  8790 non-null   int64 
+ 7   rating        8790 non-null   object
+ 8   duration      8790 non-null   object
+ 9   listed_in     8790 non-null   object
+dtypes: int64(1), object(9)
+memory usage: 686.8+ KB
+None
+show_id         0
+type            0
+title           0
+director        0
+country         0
+date_added      0
+release_year    0
+rating          0
+duration        0
+listed_in       0
+dtype: int64
+
+f.dropna(subset=['title', 'director'], inplace=True)
+df['rating'].fillna('Not Given', inplace=True)
+df.drop_duplicates(inplace=True)
+
+df['rating'] = df['rating'].fillna('Not Given')
