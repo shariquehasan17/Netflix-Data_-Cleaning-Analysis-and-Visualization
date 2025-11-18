@@ -1,0 +1,39 @@
+if 'type' in df.columns:
+    df['type'].value_counts().plot(
+        kind='pie',
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=['lightcoral', 'lightskyblue'],
+        figsize=(6,6)
+    )
+    plt.title('Movies vs. TV Shows')
+    plt.ylabel('')  # Removes y-label for cleaner look
+    plt.show()
+
+if 'rating' in df.columns:
+    top_ratings = df['rating'].value_counts().head(6)  # Change number as needed
+    top_ratings.plot(
+        kind='pie',
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=sns.color_palette('Set3'),
+        figsize=(7,7)
+    )
+    plt.title('Top 6 Content Ratings')
+    plt.ylabel('')
+    plt.show()
+
+if 'genres' in df.columns:
+    # Flatten the genres list
+    all_genres = sum(df['genres'], [])
+    genre_counts = pd.Series(all_genres).value_counts().head(5)
+    genre_counts.plot(
+        kind='pie',
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=sns.color_palette('pastel'),
+        figsize=(8,8)
+    )
+    plt.title('Top 5 Genres')
+    plt.ylabel('')
+    plt.show()
