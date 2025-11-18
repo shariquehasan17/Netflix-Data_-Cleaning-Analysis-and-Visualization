@@ -1,0 +1,39 @@
+wordcloud = WordCloud(width=800, height=400, background_color='black').generate(' '.join(df['title']))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+plt.show()
+
+
+
+if 'date_added' in df.columns:
+    df['year_added'] = pd.DatetimeIndex(df['date_added']).year
+    sns.countplot(x='year_added', data=df, order=sorted(df['year_added'].dropna().unique()))
+    plt.xticks(rotation=45)
+    plt.title('Titles Added Over the Years')
+    plt.ylabel('Number of Titles')
+    plt.xlabel('Year Added')
+    plt.show()
+
+
+if 'country' in df.columns:
+    country_counts = df['country'].value_counts().head(10)
+    country_counts.plot(kind='bar', color='teal')
+    plt.title('Top 10 Countries by Netflix Content')
+    plt.xlabel('Country')
+    plt.ylabel('Counts')
+    plt.xticks(rotation=45)
+    plt.show()
+
+director_counts = df['director'].value_counts().head(10)
+director_counts.plot(kind='barh', color='maroon')
+plt.title('Top 10 Directors')
+plt.xlabel('Number of Titles')
+plt.ylabel('Director')
+plt.show()
+
+
+if 'type' in df.columns:
+    df['type'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['skyblue','orange'])
+    plt.title('Distribution of Content Types')
+    plt.ylabel('')
+    plt.show()
