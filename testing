@@ -1,0 +1,16 @@
+zdf.dropna(subset=['title', 'director'], inplace=True)
+df['rating'] = df['rating'].fillna('Not Given')
+df.drop_duplicates(inplace=True)
+
+print(df['type'].unique())
+
+sns.countplot(x='type', data=df)
+plt.title('Distribution by Content Type')
+plt.show()
+
+df['genres'] = df['listed_in'].apply(lambda x: x.split(', '))
+all_genres = sum(df['genres'], [])
+genre_counts = pd.Series(all_genres).value_counts().head(10)
+genre_counts.plot(kind='barh')
+plt.title('Top 10 Genres')
+plt.show()
